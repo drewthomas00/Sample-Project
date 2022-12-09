@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.8" />
+  </ItemGroup>
+  <!--Add Reference to the BlavorMvc Project within the Solution-->
+  <ItemGroup>
+    <ProjectReference Include="..\VanderbiltFarms.Model\VanderbiltFarms.Model.csproj" />
+    <ProjectReference Include="..\VanderbiltFarms.Service\VanderbiltFarms.Service.csproj" />
+    <ProjectReference Include="..\VanderbiltFarms.Shared.ViewModel\VanderbiltFarms.Shared.ViewModel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\favicon.ico">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
