@@ -1,0 +1,17 @@
+﻿@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+@using VanderbiltFarms.Web.BlazorServerMvcPattern.Events
+@attribute [Authorize]
+
+<h3>Events - Blazor Server Side</h3>
+
+<p>Current count: @Model</p>
+
+<button class="btn btn-primary" @onclick="OnIncrement">+</button>
+<button class="btn btn-primary" @onclick="OnDecrement">-</button>
+
+@code {
+
+    public Action OnIncrement { get; set; }
+    public Action OnDecrement { get; set; }
+    public int Model { get; set; }
+}

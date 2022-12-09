@@ -1,0 +1,102 @@
+﻿@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+@using VanderbiltFarms.Web.BlazorServerMvcPattern.Events
+@using VanderbiltFarms.Shared.ViewModel
+@attribute [Authorize]
+
+<h3>Fees - Blazor Server Side</h3>
+<button class="btn btn-primary" @onclick="OnNewFeeClicked">New</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">FeeID</th>
+            <th scope="col">PlotID</th>
+            <th scope="col">Description</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Pay</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @if (Model.Count > 0)
+            {
+                foreach (FeeVM f in Model)
+                {
+                    <tr>
+                        <td>@f.FeeID</td>
+                        <td>@f.PlotID</td>
+                        <td>@f.FeeDesc</td>
+                        <td>@f.FeeAmt</td>
+                        <td>@f.DueDate</td>
+                        <td><button class="btn btn-primary" @onclick="() => {SelectedFee.Copy(f); OnEditFeeClicked();}">Edit</button></td>
+                        <td><button class="btn btn-primary" @onclick="() => {SelectedTransaction = new TransactionVM(); SelectedTransaction.Copy(f); OnPayFeeClicked();}">Pay</button></td>
+                        <td><button class="btn btn-primary" @onclick="() => {SelectedFee.FeeID = f.FeeID; OnDeleteFeeClicked();}">Delete</button></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr colspan="6">There are no homeowners in the system</tr>
+            }
+        
+    </tbody>
+</table>
+<h3>Transaction History</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">TransactionID</th>
+            <th scope="col">FeeID</th>
+            <th scope="col">TransactionDate</th>
+            <th scope="col">PaidAmt</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Transactions.Count > 0)
+        {
+            foreach (TransactionVM t in Transactions)
+            {
+                <tr>
+                    <td>@t.TransactionID</td>
+                    <td>@t.FeeID</td>
+                    <td>@t.TransactionDate</td>
+                    <td>@t.PaidAmt</td>
+                    <td>@t.Description</td>
+                    <td><button class="btn btn-primary" @onclick="() => {SelectedTransaction.Copy(t); OnEditTransactionClicked();}">Edit</button></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr colspan="4">There are no transactions in the system</tr>
+        }
+
+    </tbody>
+</table>
+
+@DispalyNewEditFee
+
+@DispalyNewEditTransaction
+
+<br />
+<br />
+
+@code {
+
+    public Action OnNewFeeClicked { get; set; }
+    public Action OnEditFeeClicked { get; set; }
+    public Action OnEditTransactionClicked { get; set; }
+    public Action OnPayFeeClicked { get; set; }
+    public Action OnDeleteFeeClicked { get; set; }
+    public RenderFragment DispalyNewEditFee { get; set; }
+    public RenderFragment DispalyNewEditTransaction { get; set; }
+    public List<FeeVM> Model { get; set; }
+    public List<TransactionVM> Transactions { get; set; }
+    public  FeeVM? SelectedFee { get; set; }
+    public TransactionVM? SelectedTransaction { get; set; }
+}

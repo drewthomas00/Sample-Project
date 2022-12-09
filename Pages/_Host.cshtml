@@ -1,0 +1,8 @@
+﻿@page "/"
+@namespace VanderbiltFarms.Web.BlazorServerMvcPattern
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<component type="typeof(AppController)" render-mode="ServerPrerendered" />

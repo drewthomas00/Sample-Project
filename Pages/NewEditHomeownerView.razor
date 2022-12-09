@@ -1,0 +1,52 @@
+﻿@using VanderbiltFarms.Shared.ViewModel
+@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+
+@if (Display)
+{
+    <h3>NewEditHomeownerView</h3>
+    <EditForm class="row g-3" Model="@homeowner" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="col-md-6">
+            <label for="homeownerID" class="form-label">HomeownerID</label>
+            <InputText readonly class="form-control" id="homeownerID" @bind-value="@homeowner.HomeownerID" ValueExpression="@( () => homeowner.HomeownerID )" />
+        </div>
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <InputText class="form-control" id="name" @bind-value="@homeowner.Name" ValueExpression="@( () => homeowner.Name )" />
+        </div>
+        <div class="col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <InputText class="form-control" id="phone" @bind-value="@homeowner.Phone" ValueExpression="@( () => homeowner.Phone )" />
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <InputText class="form-control" id="email" @bind-value="@homeowner.Email" ValueExpression="@( () => homeowner.Email )" />
+        </div>
+        <div class="col-md-6">
+            <label for="birthday" class="form-label">Birthday</label>
+            <InputText class="form-control" id="birthday" @bind-value="@homeowner.Birthday" ValueExpression="@( () => homeowner.Birthday )" />
+        </div>
+        <div class="col-md-6">
+            <label for="description" class="form-label">Description</label>
+            <InputText class="form-control" id="description" @bind-value="@homeowner.Description" ValueExpression="@( () => homeowner.Description )" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    public HomeownerVM homeowner { get; set; }
+    public bool Display { get; set; }
+    public Action HandleValidSubmit { get; set; }
+    public Action Cancel { get; set; }
+}

@@ -1,0 +1,67 @@
+﻿@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+@using VanderbiltFarms.Web.BlazorServerMvcPattern.Events
+@using VanderbiltFarms.Shared.ViewModel
+@attribute [Authorize]
+
+<h3>Plot - Blazor Server Side</h3>
+
+<button class="btn btn-primary" @onclick="OnNewPlotClicked">New</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">PlotID</th>
+            <th scope="col">HomeownerID</th>
+            <th scope="col">Street Number</th>
+            <th scope="col">Street Name</th>
+            <th scope="col">Number Of Bedrooms</th>
+            <th scope="col">Number Of Bathrooms</th>
+            <th scope="col">Square Feet</th>
+            <th scope="col">Plot Size</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+            @if (Model.Count > 0)
+            {
+                foreach (PlotVM p in Model)
+                {
+                <tr>
+                    <td>@p.PlotID</td>
+                    <td>@p.HomeownerID</td>
+                    <td>@p.StreetNumber</td>
+                    <td>@p.StreetName</td>
+                    <td>@p.NumberOfBedrooms</td>
+                    <td>@p.NumberOfBathrooms</td>
+                    <td>@p.SquareFeet</td>
+                    <td>@p.PlotSize</td>
+                    <td>@p.Description</td>
+                    <td><button class="btn btn-primary" @onclick="() => {SelectedPlot.Copy(p); OnEditPlotClicked();}">Edit</button></td>
+                    <td><button class="btn btn-primary" @onclick="() => {SelectedPlot.PlotID = p.PlotID; OnDeletePlotClicked();}">Delete</button></td>
+                </tr>
+                }
+            }
+            else
+            {
+                <tr colspan="8">There are no plots in the system</tr>
+            }
+        
+    </tbody>
+</table>
+
+@DisplayNewEditPlot
+
+<br />
+<br />
+
+@code {
+
+    public Action OnNewPlotClicked { get; set; }
+    public Action OnEditPlotClicked { get; set; }
+    public Action OnDeletePlotClicked { get; set; }
+    public RenderFragment DisplayNewEditPlot { get; set; }
+    public List<PlotVM> Model { get; set; }
+    public PlotVM? SelectedPlot { get; set; }
+}

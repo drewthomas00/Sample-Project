@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "dgSpecHash": "BEZUkFNIOnn3ltCgcWjm0bShkr9rSALM2Zvql3881U1FmMHRMkRpT6LU7XAVhXRzvnqaXsvTbCJQQG1G1uBUuQ==",
+  "success": true,
+  "projectFilePath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Web.BlazorServerMvcPattern\\VanderbiltFarms.Web.BlazorServerMvcPattern.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thomasand\\.nuget\\packages\\auth0.aspnetcore.authentication\\1.0.3\\auth0.aspnetcore.authentication.1.0.3.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\6.0.5\\microsoft.aspnetcore.authentication.openidconnect.6.0.5.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.8\\microsoft.aspnetcore.components.6.0.8.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.8\\microsoft.aspnetcore.components.analyzers.6.0.8.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.8\\microsoft.aspnetcore.metadata.6.0.8.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.2\\microsoft.identitymodel.jsonwebtokens.6.10.2.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.identitymodel.logging\\6.10.2\\microsoft.identitymodel.logging.6.10.2.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.2\\microsoft.identitymodel.protocols.6.10.2.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.2\\microsoft.identitymodel.protocols.openidconnect.6.10.2.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.2\\microsoft.identitymodel.tokens.6.10.2.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\npgsql\\7.0.0-preview.7\\npgsql.7.0.0-preview.7.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.2\\system.identitymodel.tokens.jwt.6.10.2.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\system.text.encodings.web\\4.5.1\\system.text.encodings.web.4.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}

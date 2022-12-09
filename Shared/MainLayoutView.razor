@@ -1,0 +1,26 @@
+﻿@using VanderbiltFarms.DataAccess.Helpers
+@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.LayoutViewComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu/>
+        <div>
+            @Time
+            @SidebarBottom
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            <AccessControl />
+        </div>
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code{
+    public RenderFragment? SidebarBottom { get; set; } 
+    public string? Time { get; set; }
+}

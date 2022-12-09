@@ -1,0 +1,64 @@
+﻿@using VanderbiltFarms.Shared.ViewModel
+@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+
+@if (Display)
+{
+    <h3>NewEdit Plot</h3>
+    <EditForm class="row g-3" Model="@plot" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="col-md-1">
+            <label for="plotID" class="form-label">PlotID</label>
+            <InputText readonly class="form-control" id="plotID" @bind-value="@plot.PlotID" ValueExpression="@( () => plot.PlotID )" />
+        </div>
+        <div class="col-md-1">
+            <label for="homeownerID" class="form-label">HomeownerID</label>
+            <InputText class="form-control" id="homeownerID" @bind-value="@plot.HomeownerID" ValueExpression="@( () => plot.HomeownerID )" />
+        </div>
+        <div class="col-md-3">
+            <label for="streetNumber" class="form-label">Street Number</label>
+            <InputText class="form-control" id="streetNumber" @bind-value="@plot.StreetNumber" ValueExpression="@( () => plot.StreetNumber )" />
+        </div>
+        <div class="col-md-6">
+            <label for="streetName" class="form-label">Street Name</label>
+            <InputText class="form-control" id="streetName" @bind-value="@plot.StreetName" ValueExpression="@( () => plot.StreetName )" />
+        </div>
+        <div class="col-md-3">
+            <label for="numBedrooms" class="form-label">Number of Bedrooms</label>
+            <InputText class="form-control" id="numBedrooms" @bind-value="@plot.NumberOfBedrooms" ValueExpression="@( () => plot.NumberOfBedrooms )" />
+        </div>
+        <div class="col-md-3">
+            <label for="numBathrooms" class="form-label">Number of Bathrooms</label>
+            <InputText class="form-control" id="numBathrooms" @bind-value="@plot.NumberOfBathrooms" ValueExpression="@( () => plot.NumberOfBathrooms )" />
+        </div>
+        <div class="col-md-3">
+            <label for="squareFeet" class="form-label">Square Feet</label>
+            <InputText class="form-control" id="squareFeet" @bind-value="@plot.SquareFeet" ValueExpression="@( () => plot.SquareFeet )" />
+        </div>
+        <div class="col-md-3">
+            <label for="plotSize" class="form-label">Plot Size</label>
+            <InputText class="form-control" id="plotSize" @bind-value="@plot.PlotSize" ValueExpression="@( () => plot.PlotSize )" />
+        </div>
+        <div class="col-md-12">
+            <label for="description" class="form-label">Description</label>
+            <InputText class="form-control" id="description" @bind-value="@plot.Description" ValueExpression="@( () => plot.Description )" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    public PlotVM plot { get; set; }
+    public bool Display { get; set; }
+    public Action HandleValidSubmit { get; set; }
+    public Action Cancel { get; set; }
+}

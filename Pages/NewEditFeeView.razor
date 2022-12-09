@@ -1,0 +1,48 @@
+﻿@using VanderbiltFarms.Shared.ViewModel
+@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+
+@if (Display)
+{
+    <h3>NewEdit Fee</h3>
+    <EditForm class="row g-3" Model=@fee OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="col-md-2">
+            <label for="feeID" class="form-label">FeeID</label>
+            <InputText readonly class="form-control" id="FeeID" @bind-value="@fee.FeeID" ValueExpression="@( () => fee.FeeID )" />
+        </div>
+        <div class="col-md-2">
+            <label for="plotID" class="form-label">PlotID</label>
+            <InputText class="form-control" id="plotID" @bind-value="@fee.PlotID" ValueExpression="@( () => fee.PlotID )" />
+        </div>
+        <div class="col-md-4">
+            <label for="feeAmt" class="form-label">Fee Amount</label>
+            <InputText class="form-control" id="feeAmt" @bind-value="@fee.FeeAmt" ValueExpression="@( () => fee.FeeAmt )" />
+        </div>
+        <div class="col-md-4">
+            <label for="dueDate" class="form-label">Due Date</label>
+            <InputText class="form-control" id="dueDate" @bind-value="@fee.DueDate" ValueExpression="@( () => fee.DueDate )" />
+        </div>
+        <div class="col-md-12">
+            <label for="feeDesc" class="form-label">Fee Desc</label>
+            <InputText class="form-control" id="feeDesc" @bind-value="@fee.FeeDesc" ValueExpression="@( () => fee.FeeDesc )" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    public FeeVM fee { get; set; }
+    public bool Display { get; set; }
+    public Action HandleValidSubmit { get; set; }
+    public Action Cancel { get; set; }
+}

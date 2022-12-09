@@ -1,0 +1,72 @@
+﻿@using VanderbiltFarms.Shared.ViewModel
+@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+
+@if (Display)
+{
+    <h3>Pay Fee</h3>
+    <EditForm class="row g-3" Model=@transaction OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="col-md-1">
+            <label for="transactionID" class="form-label">TransactionID</label>
+            <InputText readonly class="form-control" id="transactionID" @bind-value="@transaction.TransactionID" ValueExpression="@( () => transaction.TransactionID )" />
+        </div>
+        <div class="col-md-1">
+            <label for="feeID" class="form-label">FeeID</label>
+            <InputText readonly class="form-control" id="feeID" @bind-value="@transaction.FeeID" ValueExpression="@( () => transaction.FeeID )" />
+        </div>
+        <div class="col-md-1">
+            <label for="paidAmt" class="form-label">Fee Amount</label>
+            <InputText class="form-control" id="paidAmt" @bind-value="@transaction.PaidAmt" ValueExpression="@( () => transaction.PaidAmt )" />
+        </div>
+        <div class="col-md-2">
+            <label for="transactionDate" class="form-label">Transaction Date</label>
+            <InputText class="form-control" id="transactionDate" @bind-value="@transaction.TransactionDate" ValueExpression="@( () => transaction.TransactionDate )" />
+        </div>
+        <div class="col-md-4">
+            <label for="fullName" class="form-label">Name on Card</label>
+            <input class="form-control" id="fullName" />
+        </div>
+        <div class="col-md-5">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input class="form-control" id="cardNumber" />
+        </div>
+        <div class="col-md-2">
+            <label for="expDate" class="form-label">Expiration Date</label>
+            <input class="form-control" id="expDate" />
+        </div>
+        <div class="col-md-2">
+            <label for="cvv" class="form-label">CVV</label>
+            <input class="form-control" id="cvv" />
+        </div>
+        <div class="col-md-2">
+            <label for="description" class="form-label">Description</label>
+            <InputText readonly class="form-control" id="description" @bind-value="@transaction.Description" ValueExpression="@( () => transaction.Description )" />
+        </div>
+        <div class="col-md-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input class="form-control" id="phone" />
+        </div>
+        <div class="col-md-3">
+            <label for="zip" class="form-label">Zip</label>
+            <input class="form-control" id="zip" />
+        </div>
+
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    public TransactionVM transaction { get; set; }
+    public bool Display { get; set; }
+    public Action HandleValidSubmit { get; set; }
+    public Action Cancel { get; set; }
+}

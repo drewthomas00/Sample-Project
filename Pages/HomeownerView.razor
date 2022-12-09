@@ -1,0 +1,61 @@
+﻿@inherits VanderbiltFarms.Web.BlazorServerMvcPattern.BlazorMvcHelpers.ViewComponentBase
+@using VanderbiltFarms.Web.BlazorServerMvcPattern.Events
+@using VanderbiltFarms.Shared.ViewModel
+@attribute [Authorize]
+
+<h3>Homeowner - Blazor Server Side</h3>
+
+<button class="btn btn-primary" @onclick="OnNewHomeownerClicked">New</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">HomeownerID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count > 0)
+        {
+            foreach (HomeownerVM h in Model)
+            {
+                <tr>
+                    <td>@h.HomeownerID</td>
+                    <td>@h.Name</td>
+                    <td>@h.Phone</td>
+                    <td>@h.Email</td>
+                    <td>@h.Birthday</td>
+                    <td>@h.Description</td>
+                    <td><button class="btn btn-primary" @onclick="() => {SelectedHomeowner.Copy(h); OnEditHomeownerClicked();}">Edit</button></td>
+                    <td><button class="btn btn-primary" @onclick="() => {SelectedHomeowner.HomeownerID = h.HomeownerID; OnDeleteHomeownerClicked();}">Delete</button></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr colspan="6">There are no homeowners in the system</tr>
+        }
+    </tbody>
+</table>
+
+
+@DispalyNewEditHomeowner
+
+<br />
+<br />
+
+
+@code {
+
+    public Action OnNewHomeownerClicked { get; set; }
+    public Action OnEditHomeownerClicked { get; set; }
+    public Action OnDeleteHomeownerClicked { get; set; }
+    public RenderFragment DispalyNewEditHomeowner { get; set; }
+    public List<HomeownerVM> Model { get; set; }
+    public HomeownerVM? SelectedHomeowner { get; set; }
+}
