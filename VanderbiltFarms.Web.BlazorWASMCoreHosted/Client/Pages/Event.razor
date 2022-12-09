@@ -1,0 +1,22 @@
+﻿@page "/event"
+
+<h3>Events - Blazor Core Hosted</h3>
+<button @onclick="UpCounter" class="btn btn-primary">+</button>
+<button @onclick="DownCounter" class="btn btn-primary">-</button>
+<br />
+<div>Count: @counter </div>
+
+@code {
+    [Parameter]
+    public int counter { get; set; } = 0;
+
+    private void UpCounter()
+    {
+        counter++;
+    }
+
+    private void DownCounter()
+    {
+        counter--;
+    }
+}   

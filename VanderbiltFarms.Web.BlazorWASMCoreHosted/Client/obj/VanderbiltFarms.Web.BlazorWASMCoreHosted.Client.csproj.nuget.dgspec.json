@@ -1,0 +1,227 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Web.BlazorWASMCoreHosted\\Client\\VanderbiltFarms.Web.BlazorWASMCoreHosted.Client.csproj": {}
+  },
+  "projects": {
+    "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj",
+        "projectName": "VanderbiltFarms.Model",
+        "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj",
+        "packagesPath": "C:\\Users\\thomasand\\.nuget\\packages\\",
+        "outputPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\thomasand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://proget.clayton.net/nuget/Clayton": {},
+          "https://proget.clayton.net/nuget/Default": {},
+          "https://proget.clayton.net/nuget/VMF": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Shared.ViewModel\\VanderbiltFarms.Shared.ViewModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Shared.ViewModel\\VanderbiltFarms.Shared.ViewModel.csproj",
+        "projectName": "VanderbiltFarms.Shared.ViewModel",
+        "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Shared.ViewModel\\VanderbiltFarms.Shared.ViewModel.csproj",
+        "packagesPath": "C:\\Users\\thomasand\\.nuget\\packages\\",
+        "outputPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Shared.ViewModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\thomasand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://proget.clayton.net/nuget/Clayton": {},
+          "https://proget.clayton.net/nuget/Default": {},
+          "https://proget.clayton.net/nuget/VMF": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj": {
+                "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Web.BlazorWASMCoreHosted\\Client\\VanderbiltFarms.Web.BlazorWASMCoreHosted.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Web.BlazorWASMCoreHosted\\Client\\VanderbiltFarms.Web.BlazorWASMCoreHosted.Client.csproj",
+        "projectName": "VanderbiltFarms.Web.BlazorWASMCoreHosted.Client",
+        "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Web.BlazorWASMCoreHosted\\Client\\VanderbiltFarms.Web.BlazorWASMCoreHosted.Client.csproj",
+        "packagesPath": "C:\\Users\\thomasand\\.nuget\\packages\\",
+        "outputPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Web.BlazorWASMCoreHosted\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\thomasand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://proget.clayton.net/nuget/Clayton": {},
+          "https://proget.clayton.net/nuget/Default": {},
+          "https://proget.clayton.net/nuget/VMF": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj": {
+                "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Model\\VanderbiltFarms.Model.csproj"
+              },
+              "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Shared.ViewModel\\VanderbiltFarms.Shared.ViewModel.csproj": {
+                "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Shared.ViewModel\\VanderbiltFarms.Shared.ViewModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[6.0.8, 6.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

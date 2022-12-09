@@ -1,0 +1,197 @@
+﻿@page "/plot"
+
+@using Newtonsoft.Json
+@using VanderbiltFarms.Shared.ViewModel
+@using System.Text.Json
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@inject IJSRuntime JsRuntime
+@inject HttpClient Http
+
+@attribute [Authorize]
+
+<h3>Plots - Blazor Core Hosted</h3>
+
+<button class="btn btn-primary" @onclick="() => { showNewPlotComponent = true; plot = new PlotVM();}">New Plot</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">PlotID</th>
+            <th scope="col">HomeownerID</th>
+            <th scope="col">Street Number</th>
+            <th scope="col">Street Name</th>
+            <th scope="col">Number Of Bedrooms</th>
+            <th scope="col">Number Of Bathrooms</th>
+            <th scope="col">Square Feet</th>
+            <th scope="col">Plot Size</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+            @if (plots.Count > 0)
+            {
+                foreach (PlotVM p in plots)
+                {
+                    <tr>
+                        <td>@p.PlotID</td>
+                        <td>@p.HomeownerID</td>
+                        <td>@p.StreetNumber</td>
+                        <td>@p.StreetName</td>
+                        <td>@p.NumberOfBedrooms</td>
+                        <td>@p.NumberOfBathrooms</td>
+                        <td>@p.SquareFeet</td>
+                        <td>@p.PlotSize</td>
+                        <td>@p.Description</td>
+                        <td><button class="btn btn-primary" @onclick="() => LoadEditPlot(p)">Edit</button></td>
+                        <td><button class="btn btn-primary" @onclick="() => DeletePlot(p.PlotID)">Delete</button></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr colspan="8">There are no plots in the system</tr>
+            }
+    </tbody>
+</table>
+@if (showNewPlotComponent)
+{
+    <h3>NewEdit Plot</h3>
+    <EditForm class="row g-3" Model="@plot" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="col-md-3">
+            <label for="plotID" class="form-label">PlotID</label>
+            <InputText readonly class="form-control" id="plotID" @bind-value="@plot.PlotID" ValueExpression="@( () => plot.PlotID )" />
+        </div>
+        <div class="col-md-3">
+            <label for="homeownerID" class="form-label">HomeownerID</label>
+            <InputText class="form-control" id="homeownerID" @bind-value="@plot.HomeownerID" ValueExpression="@( () => plot.HomeownerID )" />
+        </div>
+        <div class="col-md-6">
+            <label for="streetNumber" class="form-label">Street Number</label>
+            <InputText class="form-control" id="streetNumber" @bind-value="@plot.StreetNumber" ValueExpression="@( () => plot.StreetNumber )" />
+        </div>
+        <div class="col-md-6">
+            <label for="streetName" class="form-label">Street Name</label>
+            <InputText class="form-control" id="streetName" @bind-value="@plot.StreetName" ValueExpression="@( () => plot.StreetName )" />
+        </div>
+        <div class="col-md-3">
+            <label for="numBedrooms" class="form-label">Number of Bedrooms</label>
+            <InputText class="form-control" id="numBedrooms" @bind-value="@plot.NumberOfBedrooms" ValueExpression="@( () => plot.NumberOfBedrooms )" />
+        </div>
+        <div class="col-md-3">
+            <label for="numBathrooms" class="form-label">Number of Bathrooms</label>
+            <InputText class="form-control" id="numBathrooms" @bind-value="@plot.NumberOfBathrooms" ValueExpression="@( () => plot.NumberOfBathrooms )" />
+        </div>
+        <div class="col-md-3">
+            <label for="squareFeet" class="form-label">Square Feet</label>
+            <InputText class="form-control" id="squareFeet" @bind-value="@plot.SquareFeet" ValueExpression="@( () => plot.SquareFeet )" />
+        </div>
+        <div class="col-md-3">
+            <label for="plotSize" class="form-label">Plot Size</label>
+            <InputText class="form-control" id="plotSize" @bind-value="@plot.PlotSize" ValueExpression="@( () => plot.PlotSize )" />
+        </div>
+        <div class="col-md-6">
+            <label for="description" class="form-label">Description</label>
+            <InputText class="form-control" id="description" @bind-value="@plot.Description" ValueExpression="@( () => plot.Description )" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+<br />
+<br />
+
+@code {
+    public bool showNewPlotComponent = false;
+    public PlotVM plot = new PlotVM();
+    public List<PlotVM> plots = new List<PlotVM>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            plots = await Http.GetFromJsonAsync<List<PlotVM>>("plot/getall");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Error getting plots from the database. Please try again.");
+            exception.Redirect();
+        }
+        //var task = await Http.GetAsync("plot/getall");
+        //var jsonString = await task.Content.ReadAsStringAsync();
+        //if (!task.IsSuccessStatusCode)
+        //{
+        //    var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Error getting plots from the database. Please try again.");
+        //}
+        //plots = JsonConvert.DeserializeObject<List<PlotVM>>(jsonString);
+    }
+
+    private void LoadEditPlot(PlotVM p)
+    {
+        plot.Copy(p);
+        showNewPlotComponent = true;
+    }
+
+    private async void DeletePlot(string? plotID)
+    {
+        var response = Http.DeleteAsync($"plot/{plotID}");
+        plots.Remove(plots.Where(x => x.PlotID == plotID).FirstOrDefault());
+    }
+    private async void HandleValidSubmit()
+    {
+        HttpResponseMessage response;
+        if (plot.PlotID == null)
+        {
+            response = await Http.PostAsJsonAsync<PlotVM>("plot", plot);
+            if (response.IsSuccessStatusCode)
+            {
+                plots.Add(plot);
+            }
+            else
+            {
+                var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Error creating new plot. Please try again.");
+            }
+        }
+        else
+        {
+            response = await Http.PutAsJsonAsync<PlotVM>("plot", plot);
+            if (response.IsSuccessStatusCode)
+            {
+                var index = plots.FindIndex(x => x.PlotID == plot.PlotID);
+                plots[index].Copy(plot);
+            }
+            else
+            {
+                var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Error updating plot. Please try again.");
+            }
+        }
+        if (response.IsSuccessStatusCode)
+        {
+            showNewPlotComponent = false;
+            plot = new PlotVM(); //reset form
+            StateHasChanged();
+        }
+    }
+    private async void Cancel()
+    {
+        var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to leave this page? Any current changes will be lost.");
+        if (confirmed){
+            showNewPlotComponent = false;
+            plot = new PlotVM(); //reset form values
+            StateHasChanged();
+        }
+    }
+}
