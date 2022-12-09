@@ -1,0 +1,148 @@
+﻿@page "/homeowner"
+@using VanderbiltFarms.Model
+@using VanderbiltFarms.Shared.ViewModel
+@using System.Text.Json
+@inject HttpClient Http
+@inject IJSRuntime JsRuntime
+
+@attribute [Authorize]
+
+<h3>Homeowners - Blazor Client Hosted</h3>
+
+<button class="btn btn-primary" @onclick="() => {showNewHomeownerComponent = true; homeowner = new HomeownerVM();}">New Homeowner</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">HomeownerID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+            @if (homeowners.Count > 0)
+            {
+                foreach (HomeownerVM h in homeowners)
+                {
+                    <tr>
+                        <td>@h.HomeownerID</td>
+                        <td>@h.Name</td>
+                        <td>@h.Phone</td>
+                        <td>@h.Email</td>
+                        <td>@h.Birthday</td>
+                        <td>@h.Description</td>
+                        <td><button class="btn btn-primary" @onclick="() => LoadEditHomeowner(h)">Edit</button></td>
+                        <td><button class="btn btn-primary" @onclick="() => DeleteHomeowner(h.HomeownerID)">Delete</button></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr colspan="6">There are no homeowners in the system</tr>
+            }
+        
+    </tbody>
+</table>
+@if (showNewHomeownerComponent)
+{
+    <h3>NewEdit Homeowner</h3>
+    <EditForm class="row g-3" Model="@homeowner" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="col-md-6">
+            <label for="homeownerID" class="form-label">HomeownerID</label>
+            <InputText readonly class="form-control" id="=homeownerID" @bind-value="@homeowner.HomeownerID" ValueExpression="@( () => homeowner.HomeownerID )" />
+        </div>
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <InputText class="form-control" id="name" @bind-value="@homeowner.Name" ValueExpression="@( () => homeowner.Name )" />
+        </div>
+        <div class="col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <InputText class="form-control" id="phone" @bind-value="@homeowner.Phone" ValueExpression="@( () => homeowner.Phone )" />
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <InputText class="form-control" id="email" @bind-value="@homeowner.Email" ValueExpression="@( () => homeowner.Email )" />
+        </div>
+        <div class="col-md-6">
+            <label for="birthday" class="form-label">Birthday</label>
+            <InputText class="form-control" id="birthday" @bind-value="@homeowner.Birthday" ValueExpression="@( () => homeowner.Birthday )" />
+        </div>
+        <div class="col-md-6">
+            <label for="description" class="form-label">Description</label>
+            <InputText class="form-control" id="description" @bind-value="@homeowner.Description" ValueExpression="@( () => homeowner.Description )" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+<br />
+<br />
+
+@code {
+    public bool showNewHomeownerComponent = false;
+    public List<HomeownerVM> homeowners = new List<HomeownerVM>();
+    public HomeownerVM homeowner = new HomeownerVM();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var temp = await Http.GetFromJsonAsync<Model.Homeowner[]>("sample-data/homeowner.json");
+        foreach (Model.Homeowner h in temp)
+        {
+            HomeownerVM homeownerViewModel = new HomeownerVM();
+            homeownerViewModel.Map(h);
+            homeowners.Add(homeownerViewModel);
+        }
+    }
+
+    private void LoadEditHomeowner(HomeownerVM h)
+    {
+        homeowner.Copy(h);
+        showNewHomeownerComponent = true;
+    }
+
+    private async void DeleteHomeowner(string? homeownerID)
+    {
+        homeowners.Remove(homeowners.Where(x => x.HomeownerID == homeownerID).FirstOrDefault());
+    }
+
+    private async void HandleValidSubmit()
+    {
+        if (homeowner.HomeownerID == null)
+        {
+            homeowners.Add(homeowner);
+        }
+        else
+        {
+            var index = homeowners.FindIndex(x => x.HomeownerID == homeowner.HomeownerID);
+            homeowners[index].Copy(homeowner);
+        }
+        showNewHomeownerComponent = false;
+        homeowner = new HomeownerVM(); //reset form
+        StateHasChanged();
+    }
+    private async void Cancel()
+    {
+        var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to leave this page? Any current changes will be lost.");
+        if (confirmed){
+            showNewHomeownerComponent = false;
+            homeowner = new HomeownerVM(); // reset form
+            StateHasChanged();
+        }
+    }
+}

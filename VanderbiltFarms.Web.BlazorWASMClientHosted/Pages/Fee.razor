@@ -1,0 +1,282 @@
+﻿@page "/fee"
+
+@using VanderbiltFarms.Model
+@using VanderbiltFarms.Shared.ViewModel
+@using System.Text.Json
+
+@inject HttpClient Http
+@inject IJSRuntime JsRuntime
+
+@attribute [Authorize]
+
+<h3>Fees - Blazor Client Hosted</h3>
+<button class="btn btn-primary" @onclick="() => {showNewFeeComponent = true; fee = new FeeVM();}">New Fee</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">FeeID</th>
+            <th scope="col">PlotID</th>
+            <th scope="col">FeeDesc</th>
+            <th scope="col">FeeAmt</th>
+            <th scope="col">DueDate</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Pay</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (fees.Count > 0)
+        {
+            foreach (FeeVM f in fees)
+            {
+            <tr>
+                <td>@f.FeeID</td>
+                <td>@f.PlotID</td>
+                <td>@f.FeeDesc</td>
+                <td>@f.FeeAmt</td>
+                <td>@f.DueDate</td>
+                <td><button class="btn btn-primary" @onclick="() => LoadEditFee(f)">Edit</button></td>
+                <td><button class="btn btn-primary" @onclick="() => LoadPayFee(f)">Pay</button></td>
+                <td><button class="btn btn-primary" @onclick="() => DeleteFee(f.FeeID)">Delete</button></td>
+            </tr>
+            }
+        }
+        else
+        {
+            <tr colspan="11">There are no fees in the system</tr>
+        }
+    </tbody>
+</table>
+<h3>TransactionHistory</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">TransactionID</th>
+            <th scope="col">TransactionDate</th>
+            <th scope="col">PaidAmt</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @if (transactions.Count > 0)
+            {
+                foreach (TransactionVM t in transactions)
+                {
+                <tr>
+                    <td>@t.TransactionID</td>
+                    <td>@t.TransactionDate</td>
+                    <td>@t.PaidAmt</td>
+                    <td>@t.Description</td>
+                    <td><button class="btn btn-primary" @onclick="() => LoadEditTransaction(t)">Edit</button></td>
+                </tr>
+                }
+            }
+            else
+            {
+                <tr colspan="4">There are no transactions in the system</tr>
+            }
+        
+    </tbody>
+</table>
+@if (showNewFeeComponent)
+{
+    <h3>NewEdit Fee</h3>
+    <EditForm class="row g-3" Model=@fee OnValidSubmit="@HandleNewFeeSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="col-md-3">
+            <label for="feeID" class="form-label">FeeID</label>
+            <InputText readonly class="form-control" id="feeID" @bind-value="@fee.FeeID" ValueExpression="@( () => fee.FeeID )" />
+        </div>
+        <div class="col-md-3">
+            <label for="plotID" class="form-label">PlotID</label>
+            <InputText class="form-control" id="plotID" @bind-value="@fee.PlotID" ValueExpression="@( () => fee.PlotID )" />
+        </div>
+        <div class="col-md-6">
+            <label for="feeDesc" class="form-label">Fee Desc</label>
+            <InputText class="form-control" id="feeDesc" @bind-value="@fee.FeeDesc" ValueExpression="@( () => fee.FeeDesc )" />
+        </div>
+        <div class="col-md-6">
+            <label for="feeAmt" class="form-label">Fee Amount</label>
+            <InputText class="form-control" id="feeAmt" @bind-value="@fee.FeeAmt" ValueExpression="@( () => fee.FeeAmt )" />
+        </div>
+        <div class="col-md-6">
+            <label for="dueDate" class="form-label">Due Date</label>
+            <InputText class="form-control" id="dueDate" @bind-value="@fee.DueDate" ValueExpression="@( () => fee.DueDate )" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+@if (showPayFeeComponent)
+{
+    <h3>Pay Fee</h3>
+    <EditForm class="row g-3" Model=@transaction OnValidSubmit="@HandlePayFeeSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="col-md-2">
+            <label for="transactionID" class="form-label">Transaction ID</label>
+            <InputText readonly class="form-control" id="transactionID" @bind-value="@transaction.TransactionID" ValueExpression="@( () => transaction.TransactionID )" />
+        </div>
+        <div class="col-md-2">
+            <label for="feeID" class="form-label">Fee ID</label>
+            <InputText readonly class="form-control" id="feeID" @bind-value="@transaction.FeeID" ValueExpression="@( () => transaction.FeeID )" />
+        </div>
+        <div class="col-md-2">
+            <label for="paidAmt" class="form-label">Fee Amount</label>
+            <InputText class="form-control" id="paidAmt" @bind-value="@transaction.PaidAmt" ValueExpression="@( () => transaction.PaidAmt )" />
+        </div>
+        <div class="col-md-2">
+            <label for="transactionDate" class="form-label">Transaction Date</label>
+            <InputText class="form-control" id="transactionDate" @bind-value="@transaction.TransactionDate" ValueExpression="@( () => transaction.TransactionDate )" />
+        </div>
+        <div class="col-md-4">
+            <label for="description" class="form-label">Description</label>
+            <InputText readonly class="form-control" id="description" @bind-value="@transaction.Description" ValueExpression="@( () => transaction.Description )" />
+        </div>
+        <div class="col-md-6">
+            <label for="fullName" class="form-label">Name on Card</label>
+            <input class="form-control" id="fullName" />
+        </div>
+        <div class="col-md-6">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input class="form-control" id="cardNumber" />
+        </div>
+        <div class="col-md-3">
+            <label for="expDate" class="form-label">Expiration Date</label>
+            <input class="form-control" id="expDate" />
+        </div>
+        <div class="col-md-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input class="form-control" id="cvv" />
+        </div>
+        <div class="col-md-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input class="form-control" id="phone" />
+        </div>
+        <div class="col-md-3">
+            <label for="zip" class="form-label">Zip</label>
+            <input class="form-control" id="zip" />
+        </div>
+
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-secondary" type="reset" @onclick="Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+}
+<br />
+<br />
+
+@code {
+    public bool showNewFeeComponent = false;
+    public bool showPayFeeComponent = false;
+    public FeeVM fee = new FeeVM();
+
+    public List<FeeVM> fees = new List<FeeVM>();
+
+    public List<TransactionVM> transactions = new List<TransactionVM>();
+    public TransactionVM transaction = new TransactionVM();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var temp = await Http.GetFromJsonAsync<Model.Fee[]>("sample-data/fee.json");
+        foreach (Model.Fee f in temp)
+        {
+            FeeVM feeViewModel = new FeeVM();
+            feeViewModel.Map(f);
+            feeViewModel.DueDate = DateTime.Now.ToString(); // TODO: something is wrong with the json date parsing here - defaulting for time
+            fees.Add(feeViewModel);
+        }
+
+        var temp2 = await Http.GetFromJsonAsync<Model.Transaction[]>("sample-data/transaction.json");
+        foreach (Transaction t in temp2)
+        {
+            TransactionVM transactionViewModel = new TransactionVM();
+            transactionViewModel.Map(t);
+            transactions.Add(transactionViewModel);
+        }
+    }
+
+    private void LoadEditFee(FeeVM f)
+    {
+        fee.Copy(f);
+        showNewFeeComponent = true;
+    }
+    private void LoadEditTransaction(TransactionVM t)
+    {
+        transaction.Copy(t);
+        showPayFeeComponent = true;
+    }
+
+    private void LoadPayFee(FeeVM f)
+    {
+        transaction = new TransactionVM(); //need to clear out transactionID if users were previously editing
+        transaction.Copy(f);
+        showPayFeeComponent = true;
+    }
+
+    private async void DeleteFee(string? feeID)
+    {
+        fees.Remove(fees.Where(x => x.FeeID == feeID).FirstOrDefault());
+    }
+    private async void HandleNewFeeSubmit()
+    {
+        if (fee.FeeID == null)
+        {
+            fees.Add(fee);
+        }
+        else
+        {
+            var index = fees.FindIndex(x => x.FeeID == fee.FeeID);
+            fees[index].Copy(fee);
+        }
+        showNewFeeComponent = false;
+        fee = new FeeVM(); //reset form values
+        StateHasChanged();
+    }
+
+    private async void HandlePayFeeSubmit()
+    {
+        if (transaction.TransactionID == null)
+        {
+            transactions.Add(transaction);
+        }
+        else
+        {
+            var index = transactions.FindIndex(x => x.TransactionID == transaction.TransactionID);
+            transactions[index].Copy(transaction);
+        }
+        
+        showPayFeeComponent = false;
+        fee = new FeeVM(); // reset form
+        StateHasChanged();
+    }
+
+    private async void Cancel()
+    {
+        var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to leave this page? Any current changes will be lost.");
+        if (confirmed){
+            showPayFeeComponent = false;
+            showNewFeeComponent = false;
+            fee = new FeeVM(); // reset form
+            StateHasChanged();
+        }
+    }
+}

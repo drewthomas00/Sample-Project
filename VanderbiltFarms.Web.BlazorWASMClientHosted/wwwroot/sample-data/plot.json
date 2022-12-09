@@ -1,0 +1,46 @@
+﻿[
+  {
+    "HomeownerId": 1,
+    "PlotId": 1,
+    "StreetNumber": 267,
+    "StreetName": "Forest Ave",
+    "Acres": ".88",
+    "SquareFeet": 1845,
+    "Description": "corner lot",
+    "Bathrooms": 2.5,
+    "Bedrooms": 4
+  },
+  {
+    "HomeownerId": 2,
+    "PlotId": 2,
+    "StreetNumber": 127,
+    "StreetName": "Harper Lane",
+    "Acres": ".21",
+    "SquareFeet": 1142,
+    "Description": "townhome",
+    "Bathrooms": 2.5,
+    "Bedrooms": 3
+  },
+  {
+    "HomeownerId": 2,
+    "PlotId": 3,
+    "StreetNumber": 684,
+    "StreetName": "Ethan Ave",
+    "Acres": ".32",
+    "SquareFeet": 2045,
+    "Description": "duplex",
+    "Bathrooms": 2.5,
+    "Bedrooms": 3
+  },
+  {
+    "HomeownerId": 3,
+    "PlotId": 4,
+    "StreetNumber": 640,
+    "StreetName": "Ashshire Street",
+    "Acres": ".42",
+    "SquareFeet": 2345,
+    "Description": "cul-de-sac",
+    "Bathrooms": 3.5,
+    "Bedrooms": 5
+  }
+]

@@ -1,0 +1,26 @@
+﻿[
+  {
+    "PlotId": 1,
+    "FeeId": 1,
+    "Amount": 65,
+    "Description": "Sample Fee"
+  },
+  {
+    "PlotId": 1,
+    "FeeId": 2,
+    "Amount": 200,
+    "Description": "Base HOA Fee"
+  },
+  {
+    "PlotId": 1,
+    "FeeId": 3,
+    "Amount": 75,
+    "Description": "Pool Service"
+  },
+  {
+    "PlotId": 2,
+    "FeeId": 4,
+    "Amount": 3000,
+    "Description": "New fence installation around clubhouse"
+  }
+]

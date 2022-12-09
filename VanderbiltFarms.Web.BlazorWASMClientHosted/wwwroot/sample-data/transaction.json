@@ -1,0 +1,39 @@
+﻿[
+  {
+    "TransactionId": 1,
+    "Amount": 230,
+    "TransactionDate": "1997-11-01T00:00:00.000Z",
+    "Description": "Paid on time"
+  },
+  {
+    "TransactionId": 2,
+    "Amount": 30,
+    "TransactionDate": "1997-11-01T00:00:00.000Z",
+    "Description": "Paid on time"
+  },
+  {
+    "TransactionId": 3,
+    "Amount": 400,
+    "TransactionDate": "1997-11-01T00:00:00.000Z",
+    "Description": "Paid late"
+  },
+  {
+    "TransactionId": 4,
+    "Amount": 20,
+    "TransactionDate": "1997-11-01T00:00:00.000Z",
+    "Description": "Paid late"
+  },
+  {
+    "TransactionId": 5,
+    "Amount": 200,
+    "TransactionDate": "1997-11-01T00:00:00.000Z",
+    "Description": "Paid on time"
+  },
+  {
+    "TransactionId": 6,
+    "Amount": 42,
+    "TransactionDate": "1997-11-01T00:00:00.000Z",
+    "Description": "Paid on time"
+  }
+
+]
