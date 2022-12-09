@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Service", "VanderbiltFarms.Service\VanderbiltFarms.Service.csproj", "{AB1CC22C-FAEC-4739-9BBC-D04E2CC5285B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Web.Mvc", "VanderbiltFarms.Web.Mvc\VanderbiltFarms.Web.Mvc.csproj", "{F4B428A4-D4F9-4D68-A1DB-77D16C067D4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Web.BlazorServerMvcPattern", "VanderbiltFarms.Web.BlazorServerMvcPattern\VanderbiltFarms.Web.BlazorServerMvcPattern.csproj", "{3EC580C5-99DE-4143-8E2F-DC521D059556}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.DataAccess", "VanderbiltFarms.DataAccess\VanderbiltFarms.DataAccess.csproj", "{3671A8F0-EB5D-43FA-B651-CCC45191D54F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Model", "VanderbiltFarms.Model\VanderbiltFarms.Model.csproj", "{36A1FE6B-F030-4529-B890-7C1C017778E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Web.BlazorWASMCoreHosted.Server", "VanderbiltFarms.Web.BlazorWASMCoreHosted\Server\VanderbiltFarms.Web.BlazorWASMCoreHosted.Server.csproj", "{F449EC51-B251-4F37-8020-C32E8E6948AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Shared.ViewModel", "VanderbiltFarms.Shared.ViewModel\VanderbiltFarms.Shared.ViewModel.csproj", "{A800FC92-D6E7-44EF-8068-0FC9406AA78B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Web.BlazorWASMClientHosted", "VanderbiltFarms.Web.BlazorWASMClientHosted\VanderbiltFarms.Web.BlazorWASMClientHosted.csproj", "{2459116C-4BDA-492B-AA9C-83D074FF1575}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanderbiltFarms.Web.BlazorWASMCoreHosted.Client", "VanderbiltFarms.Web.BlazorWASMCoreHosted\Client\VanderbiltFarms.Web.BlazorWASMCoreHosted.Client.csproj", "{88BA8846-3557-4083-851D-2E5944B569B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB1CC22C-FAEC-4739-9BBC-D04E2CC5285B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1CC22C-FAEC-4739-9BBC-D04E2CC5285B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1CC22C-FAEC-4739-9BBC-D04E2CC5285B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1CC22C-FAEC-4739-9BBC-D04E2CC5285B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B428A4-D4F9-4D68-A1DB-77D16C067D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B428A4-D4F9-4D68-A1DB-77D16C067D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B428A4-D4F9-4D68-A1DB-77D16C067D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B428A4-D4F9-4D68-A1DB-77D16C067D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC580C5-99DE-4143-8E2F-DC521D059556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC580C5-99DE-4143-8E2F-DC521D059556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC580C5-99DE-4143-8E2F-DC521D059556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC580C5-99DE-4143-8E2F-DC521D059556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3671A8F0-EB5D-43FA-B651-CCC45191D54F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3671A8F0-EB5D-43FA-B651-CCC45191D54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3671A8F0-EB5D-43FA-B651-CCC45191D54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3671A8F0-EB5D-43FA-B651-CCC45191D54F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A1FE6B-F030-4529-B890-7C1C017778E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A1FE6B-F030-4529-B890-7C1C017778E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A1FE6B-F030-4529-B890-7C1C017778E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A1FE6B-F030-4529-B890-7C1C017778E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F449EC51-B251-4F37-8020-C32E8E6948AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F449EC51-B251-4F37-8020-C32E8E6948AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F449EC51-B251-4F37-8020-C32E8E6948AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F449EC51-B251-4F37-8020-C32E8E6948AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A800FC92-D6E7-44EF-8068-0FC9406AA78B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A800FC92-D6E7-44EF-8068-0FC9406AA78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A800FC92-D6E7-44EF-8068-0FC9406AA78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A800FC92-D6E7-44EF-8068-0FC9406AA78B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2459116C-4BDA-492B-AA9C-83D074FF1575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2459116C-4BDA-492B-AA9C-83D074FF1575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2459116C-4BDA-492B-AA9C-83D074FF1575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2459116C-4BDA-492B-AA9C-83D074FF1575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BA8846-3557-4083-851D-2E5944B569B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BA8846-3557-4083-851D-2E5944B569B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BA8846-3557-4083-851D-2E5944B569B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BA8846-3557-4083-851D-2E5944B569B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C109C225-F36E-4178-844A-34E02F197CDE}
+	EndGlobalSection
+EndGlobal
