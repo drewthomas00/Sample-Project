@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.BlazorMvcEventBus\\VanderbiltFarms.BlazorMvcEventBus.csproj": {}
+  },
+  "projects": {
+    "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.BlazorMvcEventBus\\VanderbiltFarms.BlazorMvcEventBus.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.BlazorMvcEventBus\\VanderbiltFarms.BlazorMvcEventBus.csproj",
+        "projectName": "VanderbiltFarms.DataAccess",
+        "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.BlazorMvcEventBus\\VanderbiltFarms.BlazorMvcEventBus.csproj",
+        "packagesPath": "C:\\Users\\thomasand\\.nuget\\packages\\",
+        "outputPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\thomasand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Dto\\VanderbiltFarms.Dto.csproj": {
+                "projectPath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.Dto\\VanderbiltFarms.Dto.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[3.1.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "J/kj8+El3jRoNA/S1F6ZzjWdFrvJzJN0IMoHRcLcsp8QLt98/2T5L7uqHwLLFFTryZG/+1f+uFfNdMIQlum4yw==",
+  "success": true,
+  "projectFilePath": "C:\\Clayton\\VanderbiltFarms\\src\\VanderbiltFarms.DataAccess\\VanderbiltFarms.DataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thomasand\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\npgsql\\7.0.0-preview.7\\npgsql.7.0.0-preview.7.nupkg.sha512",
+    "C:\\Users\\thomasand\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
